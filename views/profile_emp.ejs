@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="heading clip image">
+    Employee Review System | Profile
+  </div>
+  <div class="heading clip image">
+    A CRM webApp
+  </div>
+  <header>
+    <div class="container">
+      <a href="" class="logo"> Hi, <span class="green-text">
+          <%= data.name%>
+        </span></a>
+
+
+      <nav>
+        <ul>
+          <li>
+            <a href="#">HOME</a>
+          </li>
+          <li><a href="/logout">Logout</a>
+          </li>
+
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="info_bar">
+    <div class="info_bar_picture_container">
+      <%if(data[0].sex=="male" ){ %>
+        <img src="/image/avatar.png">
+        <%} else{ %>
+          <img src="/images/avatarF.png">
+          <%}%>
+    </div>
+    <div>
+      <h3>Name : <%= data[0].name %>
+      </h3>
+      <h3>Age : <%= data[0].age %>
+      </h3>
+      <h3>Email : <%= data[0].email %>
+      </h3>
+      <h3>Sex : <%= data[0].sex %>
+      </h3>
+      <h3>Role : <%= data[0].role %>
+      </h3>
+    </div>
+
+  </div>
+
+  <div class="ReviewsGivenList">
+    <div class="ReviewsGivenListHeading">
+      <p>Reviews to be given</p>
+    </div>
+    <% for(var i=0;i<data[0].reviewsToBeGiven.length;i++){%>
+      <li><a href="/reviewForm/<%= data[0].reviewsToBeGiven[i] %>">
+          <%= data[0].reviewsToBeGiven[i] %>
+        </a></li>
+      <% } %>
+  </div>
+
+</body>
+
+</html>
